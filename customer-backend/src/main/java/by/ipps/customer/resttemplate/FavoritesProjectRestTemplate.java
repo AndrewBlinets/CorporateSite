@@ -1,0 +1,59 @@
+package by.ipps.customer.resttemplate;
+
+import by.ipps.customer.entity.FavoriteProject;
+import by.ipps.customer.entity.Project;
+import by.ipps.customer.resttemplate.base.BaseInfoForRest;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.*;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.Collections;
+import java.util.List;
+
+@Component
+@Log4j2
+public class FavoritesProjectRestTemplate extends BaseInfoForRest {
+
+  private static final String URL = "customer/favoriteProject";
+
+  public FavoritesProjectRestTemplate(RestTemplate restTemplate) {
+    super(restTemplate);
+  }
+
+  public ResponseEntity<List<Project>> getFavoritProjectByIdCustomer(int idCustomer) {
+    try {
+      UriComponentsBuilder builder =
+          UriComponentsBuilder.fromHttpUrl(this.urlServer + URL).queryParam("customer", idCustomer);
+      return this.restTemplate.exchange(
+          builder.toUriString(),
+          HttpMethod.GET,
+          null,
+          new ParameterizedTypeReference<List<Project>>() {});
+    } catch (org.springframework.web.client.HttpClientErrorException exception) {
+      log.info("findByid");
+      log.error(exception.getStatusCode() + " " + exception.getStatusText());
+      log.error(exception.getStackTrace());
+      return new ResponseEntity<>(HttpStatus.valueOf(exception.getStatusCode().value()));
+    }
+  }
+
+  public ResponseEntity<Project> addFavoriteProject(FavoriteProject favoriteProject) {
+    UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(this.urlServer + URL);
+    HttpHeaders requestHeaders = new HttpHeaders();
+    requestHeaders.setContentType(MediaType.APPLICATION_JSON);
+    requestHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+    HttpEntity<FavoriteProject> requestEntity = new HttpEntity<>(favoriteProject, requestHeaders);
+    return restTemplate.exchange(
+        builder.toUriString(), HttpMethod.POST, requestEntity, Project.class);
+  }
+
+  public void removeFavoriteProject(int infoFromToken, long id) {
+    UriComponentsBuilder builder =
+        UriComponentsBuilder.fromHttpUrl(this.urlServer + URL + "/" + id)
+            .queryParam("customer", String.valueOf(infoFromToken));
+    restTemplate.exchange(builder.toUriString(), HttpMethod.DELETE, null, Boolean.TYPE);
+  }
+}

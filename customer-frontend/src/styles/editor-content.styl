@@ -1,0 +1,52 @@
+.article-body,
+.project-body
+  h2
+    margin-top: 3rem
+    font-weight: 800
+    font-size: 1.75rem
+  p, li
+    line-height: 1.572
+    text-align: left
+  a
+    color: #1461ff
+    font-weight: 600
+    &:hover
+      text-decoration: underline
+  ul,
+  ol
+    margin-left: 1.3rem
+    margin-top: -1.2rem
+  ul
+    li:before
+      content: "\2022"
+      color: #1461ff
+      font-weight: bold
+      display: inline-block
+      width: 1em
+      margin-left: -1em
+  .image
+    width: 100%
+    margin-top: 3rem
+    margin-bottom: 3rem
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      object-position: center center
+  h2, p, ul, ol
+    margin-bottom: 1.5rem
+
+@media (max-width: 480px)
+  .article-body
+    h2
+      margin-top: 1.5rem
+      font-size: 1.5rem
+    p, li
+      font-size: 14px
+    ul, ol
+      margin-top: -0.6rem
+    h2, p, ul, ol
+      margin-bottom: 0.75rem
+    .image
+      margin-top: 1.5rem
+      margin-bottom: 1.5rem

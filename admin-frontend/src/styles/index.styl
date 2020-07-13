@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap&subset=cyrillic,cyrillic-ext,latin-ext');
+@import './editor-styles.styl';
+
+*
+  margin: 0
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+  outline: none
+  word-wrap: break-word
+
+body
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial,sans-serif
+
+#app
+  height: 100vh
+
+.layout
+  display: flex
+  flex-direction: row
+  height: 100%
+  width: 100%
+  .sidebar
+    min-width: 210px
+    height: 100%
+  main
+    width: calc(100% - 210px)
+    height: 100%
+    .app-main
+      height: calc(100% - 70px)
+      width: 100%
+      padding: 20px
+      overflow-y: auto
+  
+.page-container
+  display: flex
+  flex-direction: column
+  padding: 20px
+  background-color: #fff
+  .title
+  .button-container
+    margin-bottom: 32px
+
+.el-table
+  .brand-row
+    background-color: #e9f3ff
+  .warning-row
+    background-color: oldlace
+  .error-row
+    background-color: #fde2e2
+
+.mb-1
+  margin-bottom: 16px
+
+.mb-2
+  margin-bottom: 32px
+
+.date .cell
+  word-break: normal
