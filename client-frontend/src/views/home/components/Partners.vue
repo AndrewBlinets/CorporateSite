@@ -5,7 +5,7 @@
     </div>
     <div class="app-container grid-area">
       <div class="section-header">
-        <h2>Партнеры</h2>
+        <h2>{{ $t('views.home.partners.title') }}</h2>
       </div>
       <div class="section-body">
         <div class="partners-container mx-n3">

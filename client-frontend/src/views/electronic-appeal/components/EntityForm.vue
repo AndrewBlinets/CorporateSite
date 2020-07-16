@@ -3,7 +3,8 @@
     <div class="v-list-item">
       <div class="v-list-item__content">
         <div class="v-list-item__subtitle">
-          ПОЛНОЕ НАИМЕНОВАНИЕ ЮРИДИЧЕСКОГО ЛИЦА <span class="red--text">*</span>
+          {{ $t('views.e-appeal.form.entity.jurName') }}
+          <span class="red--text">*</span>
         </div>
         <v-text-field
           v-model.trim="form.jurName"
@@ -18,7 +19,8 @@
     <div class="v-list-item">
       <div class="v-list-item__content">
         <div class="v-list-item__subtitle">
-          ПОЧТОВЫЙ ИНДЕКС ЮРИДИЧЕСКОГО ЛИЦА <span class="red--text">*</span>
+          {{ $t('views.e-appeal.form.entity.postcode') }}
+          <span class="red--text">*</span>
         </div>
         <v-text-field
           v-model.number.trim="form.postcode"
@@ -33,7 +35,8 @@
     <div class="v-list-item">
       <div class="v-list-item__content">
         <div class="v-list-item__subtitle">
-          ПОЧТОВЫЙ АДРЕС ЮРИДИЧЕСКОГО ЛИЦА <span class="red--text">*</span>
+          {{ $t('views.e-appeal.form.entity.address') }}
+          <span class="red--text">*</span>
         </div>
         <v-text-field
           v-model.trim="form.address"
@@ -48,7 +51,8 @@
     <div class="v-list-item">
       <div class="v-list-item__content">
         <div class="v-list-item__subtitle">
-          АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ <span class="red--text">*</span>
+          {{ $t('views.e-appeal.form.entity.email') }}
+          <span class="red--text">*</span>
         </div>
         <v-text-field
           ref="email"
@@ -64,7 +68,8 @@
     <div class="v-list-item">
       <div class="v-list-item__content">
         <div class="v-list-item__subtitle">
-          ФАМИЛИЯ, СОБСТВЕННОЕ ИМЯ, ОТЧЕСТВО <span class="red--text">*</span>
+          {{ $t('views.e-appeal.form.entity.name') }}
+          <span class="red--text">*</span>
         </div>
         <v-text-field
           v-model.trim="form.name"
@@ -79,7 +84,8 @@
     <div class="v-list-item">
       <div class="v-list-item__content">
         <div class="v-list-item__subtitle">
-          ТЕКСТ ОБРАЩЕНИЯ <span class="red--text">*</span>
+          {{ $t('views.e-appeal.form.entity.textAppeal') }}
+          <span class="red--text">*</span>
         </div>
         <v-textareas
           v-model.trim="form.textAppeal"
@@ -95,7 +101,7 @@
     <div class="v-list-item">
       <div class="v-list-item__content">
         <div class="v-list-item__subtitle">
-          ПРИКРЕПИТЬ ФАЙЛ
+          {{ $t('views.e-appeal.form.entity.file') }}
         </div>
         <v-file-input v-model="form.file" hide-details="auto"></v-file-input>
       </div>
@@ -106,7 +112,7 @@
         <div class="button-container">
           <div class="button-item">
             <button class="btn btn-main" @click="send">
-              Отправить
+              {{ $t('views.e-appeal.form.entity.button') }}
             </button>
           </div>
         </div>

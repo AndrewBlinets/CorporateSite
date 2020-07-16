@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="title mb-3">Последнии новости</h3>
+    <h3 class="title mb-3">{{ $t('views.news.lastNews') }}</h3>
     <div class="last-news_container ">
       <div
         class="row mx-lg-n3 mx-n1 d-flex flex-lg-wrap flex-nowrap overflow-auto"

@@ -1,8 +1,14 @@
 <template>
   <div>
     <v-radio-group v-model.number="typePerson" class="type-person__group">
-      <v-radio label="Юридическое лицо" :value="1"></v-radio>
-      <v-radio label="Физическое лицо" :value="0"></v-radio>
+      <v-radio
+        :label="$t('views.e-appeal.form.labelEntity')"
+        :value="1"
+      ></v-radio>
+      <v-radio
+        :label="$t('views.e-appeal.form.labelIndividual')"
+        :value="0"
+      ></v-radio>
     </v-radio-group>
 
     <transition name="fade">

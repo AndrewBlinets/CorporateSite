@@ -2,45 +2,30 @@
   <section id="about-us">
     <div class="app-container grid-area">
       <div class="section-header">
-        <h2>О Нас</h2>
+        <h2>{{ $t('views.home.aboutUs.title') }}</h2>
       </div>
       <div class="section-body">
         <div class="row align-items-center mb-5">
           <div class="col">
             <div class="information">
-              <p>
-                Большинство разработанных НИРУП «ИППС» продуктов относятся к
-                глобальным, эффективно применяемым на общегосударственном
-                уровне.
-              </p>
-              <p>
-                Предприятие выполняет заказы более 300 организаций, органов
-                государственного управления, учреждений и предприятий в
-                Республике Беларусь и Российской Федерации.
-              </p>
-              <p>
-                Мы предлагаем сотрудничество по разработке программного
-                обеспечения, созданию корпоративных систем, автоматизации
-                бухгалтерского учета непроизводственной сферы, комплексной
-                автоматизации органов государственного управления и других
-                структур.
+              <p
+                v-for="(item, index) of $t('views.home.aboutUs.infoList')"
+                :key="index"
+              >
+                {{ item }}
               </p>
             </div>
           </div>
           <div class="col-12 col-sm-6 mt-sm-0 mt-5">
             <div class="information-statistic">
-              <h4>
-                Наша миссия - способствовать развитию информационного общества
-                Республики Беларусь для обеспечения взаимодействия населения,
-                государства и бизнеса на базе информационных технологий
-              </h4>
+              <h4>{{ $t('views.home.aboutUs.quote') }}</h4>
             </div>
           </div>
         </div>
         <div class="button-container">
           <div class="button-item">
             <router-link :to="{ name: 'about-us' }" class="btn btn-main">
-              Подробнее
+              {{ $t('views.home.aboutUs.more') }}
             </router-link>
           </div>
         </div>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-page :image="imagePageId">
-      <h1>{{ titlePage }}</h1>
+      <h1>{{ $t('views.news.title') }}</h1>
     </header-page>
     <div class="body-page">
       <div class="app-container">
@@ -25,7 +25,9 @@
 
         <div class="button-container">
           <div v-if="!hasNewsFull" class="button-item">
-            <div class="btn btn-main" @click="loadMore">Загрузить ещё</div>
+            <div class="btn btn-main" @click="loadMore">
+              {{ $t('views.news.more') }}
+            </div>
           </div>
         </div>
       </div>

@@ -2,50 +2,52 @@
   <section id="contacts">
     <div class="app-container grid-area">
       <div class="section-header">
-        <h2>Контакты</h2>
+        <h2>{{ $t('views.home.contacts.title') }}</h2>
       </div>
       <div class="section-body">
         <div class="row">
           <div class="col-lg-6 col-12 mb-lg-0 mb-5">
             <contact>
               <contact-info-list
-                address="220013 г. Минск, ул.Беломорская, 18"
+                :address="$t('views.home.contacts.address')"
                 phone="(8-017) 290-07-66"
                 email="info@ipps.by"
               ></contact-info-list>
 
               <contact-note>
-                <p>Телефон «горячей линии» - (8-017) 290-07-66</p>
+                <p>
+                  {{ $t('views.home.contacts.hotline') }} - (8-017) 290-07-66
+                </p>
                 <div class="list">
                   <div class="header">
-                    <p>По номеру «горячей линии» можно обратиться:</p>
+                    <p>{{ $t('views.home.contacts.hotlineInfo.title') }}</p>
                   </div>
                   <ul>
-                    <li>
-                      по вопросам справочно-консультационного характера,
-                      связанного с направлениями деятельности организации;
-                    </li>
-                    <li>
-                      по вопросам выявления фактов вымогательства,
-                      взяточничества и других проявлений коррупции со стороны
-                      работников организации;
-                    </li>
-                    <li>
-                      по вопросам записи на личный прием к руководству
-                      организации.
+                    <li
+                      v-for="(item, index) of $t(
+                        'views.home.contacts.hotlineInfo.list',
+                      )"
+                      :key="index"
+                    >
+                      {{ item }}
                     </li>
                   </ul>
                 </div>
                 <div class="list">
                   <div class="header">
-                    <p>Режим работы горячей линии:</p>
+                    <p>
+                      {{ $t('views.home.contacts.operatingModeHotline.title') }}
+                    </p>
                   </div>
                   <ul>
-                    <li>понедельник – четверг: с 9-00 до 18-00;</li>
-                    <li>обеденный перерыв: с 13-00 до 13-45;</li>
-                    <li>пятница: с 9-00 до 16-20;</li>
-                    <li>обеденный перерыв: с 13-00 до 13-20;</li>
-                    <li>выходной: суббота, воскресенье.</li>
+                    <li
+                      v-for="(item, index) of $t(
+                        'views.home.contacts.operatingModeHotline.list',
+                      )"
+                      :key="index"
+                    >
+                      {{ item }}
+                    </li>
                   </ul>
                 </div>
               </contact-note>

@@ -2,7 +2,7 @@
   <section id="news">
     <div class="app-container grid-area">
       <div class="section-header">
-        <h2>Новости</h2>
+        <h2>{{ $t('views.home.news.title') }}</h2>
       </div>
       <div class="section-body">
         <div class="row mx-md-n4">
@@ -26,7 +26,7 @@
         <div class="button-container">
           <div class="button-item">
             <router-link :to="{ name: 'news' }" class="btn btn-main">
-              Все Новости
+              {{ $t('views.home.news.allNews') }}
             </router-link>
           </div>
         </div>

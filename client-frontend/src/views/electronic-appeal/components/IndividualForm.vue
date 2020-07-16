@@ -3,7 +3,8 @@
     <div class="v-list-item">
       <div class="v-list-item__content">
         <div class="v-list-item__subtitle">
-          ФАМИЛИЯ, СОБСТВЕННОЕ ИМЯ, ОТЧЕСТВО <span class="red--text">*</span>
+          {{ $t('views.e-appeal.form.individual.name') }}
+          <span class="red--text">*</span>
         </div>
         <v-text-field
           v-model.trim="form.name"
@@ -18,7 +19,8 @@
     <div class="v-list-item">
       <div class="v-list-item__content">
         <div class="v-list-item__subtitle">
-          ПОЧТОВЫЙ АДРЕС <span class="red--text">*</span>
+          {{ $t('views.e-appeal.form.individual.address') }}
+          <span class="red--text">*</span>
         </div>
         <v-text-field
           v-model.trim="form.address"
@@ -33,7 +35,8 @@
     <div class="v-list-item">
       <div class="v-list-item__content">
         <div class="v-list-item__subtitle">
-          АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ <span class="red--text">*</span>
+          {{ $t('views.e-appeal.form.individual.email') }}
+          <span class="red--text">*</span>
         </div>
         <v-text-field
           ref="email"
@@ -49,7 +52,8 @@
     <div class="v-list-item">
       <div class="v-list-item__content">
         <div class="v-list-item__subtitle">
-          ТЕКСТ ОБРАЩЕНИЯ <span class="red--text">*</span>
+          {{ $t('views.e-appeal.form.individual.textAppeal') }}
+          <span class="red--text">*</span>
         </div>
         <v-textareas
           v-model.trim="form.textAppeal"
@@ -65,7 +69,7 @@
     <div class="v-list-item">
       <div class="v-list-item__content">
         <div class="v-list-item__subtitle">
-          ПРИКРЕПИТЬ ФАЙЛ
+          {{ $t('views.e-appeal.form.individual.file') }}
         </div>
         <v-file-input v-model="form.file" hide-details="auto"></v-file-input>
       </div>
@@ -76,7 +80,7 @@
         <div class="button-container">
           <div class="button-item">
             <button class="btn btn-main" @click="send">
-              Отправить
+              {{ $t('views.e-appeal.form.individual.button') }}
             </button>
           </div>
         </div>

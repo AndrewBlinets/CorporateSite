@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-page :image="page.imageId">
-      <h1>{{ page.name }}</h1>
+      <h1>{{ $t('views.contacts.title') }}</h1>
     </header-page>
     <div class="body-page">
       <div class="app-container">

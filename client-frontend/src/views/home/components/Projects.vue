@@ -3,7 +3,7 @@
     <div class="grid-area">
       <div class="section-header">
         <div class="app-container">
-          <h2>Проекты</h2>
+          <h2>{{ $t('views.home.projects.title') }}</h2>
         </div>
       </div>
       <div class="section-body">
@@ -24,7 +24,7 @@
           <div class="button-container">
             <div class="button-item">
               <router-link :to="{ name: 'projects' }" class="btn btn-main">
-                Все Проекты
+                {{ $t('views.home.projects.allProjects') }}
               </router-link>
             </div>
           </div>

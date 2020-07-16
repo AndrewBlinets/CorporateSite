@@ -11,7 +11,7 @@
               <font-awesome-icon :icon="counter.icon" size="2x" />
             </div>
             <span class="counter">{{ counter.count }}</span>
-            <h5>{{ counter.title }}</h5>
+            <h5>{{ $t(`views.home.counterArea.${counter.title}`) }}</h5>
           </div>
         </div>
       </div>
@@ -37,17 +37,17 @@ export default {
       {
         icon: faUserTie,
         count: '300+',
-        title: 'Клиентов',
+        title: 'clients',
       },
       {
         icon: faBriefcase,
         count: '100+',
-        title: 'Проектов',
+        title: 'projects',
       },
       {
         icon: faClock,
         count: '40+',
-        title: 'Лет на рынке',
+        title: 'years',
       },
     ],
   }),

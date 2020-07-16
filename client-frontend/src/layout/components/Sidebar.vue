@@ -16,7 +16,7 @@
           :to="{ name: link.path }"
           class="sidebar--link"
         >
-          {{ link.name }}
+          {{ $t(`meta.navbar.${link.name}`) }}
         </router-link>
       </div>
     </transition>
@@ -31,35 +31,35 @@ export default {
   data: () => ({
     links: [
       {
-        name: 'Главная',
+        name: 'home',
         path: 'home',
       },
       {
-        name: 'О нас',
+        name: 'aboutUs',
         path: 'about-us',
       },
       {
-        name: 'Новости',
+        name: 'news',
         path: 'news',
       },
       {
-        name: 'Проекты',
+        name: 'projects',
         path: 'projects',
       },
       {
-        name: 'Контакты',
+        name: 'contacts',
         path: 'contacts',
       },
       {
-        name: 'Международное Сотрудничество',
+        name: 'internationalСooperation',
         path: 'eastern-partnership',
       },
       {
-        name: 'Национальный Технический Комитет',
+        name: 'technicalCommittee',
         path: 'technical-committee',
       },
       {
-        name: 'Электронное Обращение',
+        name: 'eappeal',
         path: 'electronic-appeal',
       },
     ],

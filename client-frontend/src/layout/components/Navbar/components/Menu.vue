@@ -11,13 +11,13 @@
         :to="{ name: link.path }"
         class="menu__link"
       >
-        {{ link.name }}
+        {{ $t(`meta.navbar.${link.name}`) }}
       </router-link>
 
       <v-menu>
         <template v-slot:activator="{ on, attrs }">
           <v-button text v-bind="attrs" v-on="on">
-            Ещё
+            {{ $t('meta.navbar.more') }}
             <font-awesome-icon :icon="caretDownIcon" class="icon-right" />
           </v-button>
         </template>
@@ -27,21 +27,21 @@
             :to="{ name: 'eastern-partnership' }"
             class="sub-nav--link"
           >
-            Международное Сотрудничество
+            {{ $t('meta.navbar.internationalСooperation') }}
           </router-link>
 
           <router-link
             :to="{ name: 'technical-committee' }"
             class="sub-nav--link"
           >
-            Национальный Технический Комитет
+            {{ $t('meta.navbar.technicalCommittee') }}
           </router-link>
 
           <router-link
             :to="{ name: 'electronic-appeal' }"
             class="sub-nav--link"
           >
-            Электронное обращение
+            {{ $t('meta.navbar.eappeal') }}
           </router-link>
         </div>
       </v-menu>
@@ -74,23 +74,23 @@ export default {
   data: () => ({
     links: [
       {
-        name: 'Главная',
+        name: 'home',
         path: 'home',
       },
       {
-        name: 'О нас',
+        name: 'aboutUs',
         path: 'about-us',
       },
       {
-        name: 'Новости',
+        name: 'news',
         path: 'news',
       },
       {
-        name: 'Проекты',
+        name: 'projects',
         path: 'projects',
       },
       {
-        name: 'Контакты',
+        name: 'contacts',
         path: 'contacts',
       },
     ],
