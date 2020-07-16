@@ -1,0 +1,69 @@
+{
+  "mainBanner": {
+    "typeOrganization": "НИРУП",
+    "title": "Институт прикладных программных систем",
+    "aboutOrganization": "A modern, dynamically developing company in the field of scientific and methodological support for the development of informatization, business analysis, the creation of electronic government information systems and the provision of IT services."
+  },
+  "aboutUs": {
+    "title": "About Us",
+    "infoList": [
+      "Most of the products developed by NIRUP \"IPPS\" are global, effectively applied at the national level.",
+      "The company carries out orders of more than 300 organizations, government, institutions and enterprises in the Republic of Belarus and the Russian Federation.",
+      "We offer cooperation in the development of software, the creation of corporate systems, automation of accounting in the non-manufacturing sector, integrated automation of government and other structures."
+    ],
+    "quote": "Наша миссия - способствовать развитию информационного общества Республики Беларусь для обеспечения взаимодействия населения, государства и бизнеса на базе информационных технологий",
+    "more": "More"
+  },
+  "activities": {
+    "title": "Направления Деятельности",
+    "list": [
+      "Анализ, проектирование и программное обеспечение информационных систем",
+      "Обработка данных с применением ПО третьего лица или собственного ПО",
+      "Фундаментальные и прикладные исследования, экспериментальные разработки в области естественных и технических наук",
+      "Техническая и (или) криптографическая защита информации",
+      "Анализ информационных потребностей юридических лиц и индивидуальных предпринимателей",
+      "Консультирование по вопросам использования информационных технологий в целях инновации бизнес-процессов",
+      "Оказание автоматизированных услуг по поиску, отбору, обработке и сортировке данных",
+      "Услуги центров обработки данных"
+    ]
+  },
+  "counterArea": {
+    "clients": "Clients",
+    "projects": "Projects",
+    "years": "Лет на рынке"
+  },
+  "news": {
+    "title": "News",
+    "allNews": "All News"
+  },
+  "projects": {
+    "title": "Projects",
+    "allProjects": "All Projects"
+  },
+  "partners": {
+    "title": "Partners"
+  },
+  "contacts": {
+    "title": "Contacts",
+    "address": "220013, г. Минск, ул.Беломорская, 18",
+    "hotline": "Телефон «горячей линии»",
+    "hotlineInfo": {
+      "title": "По номеру «горячей линии» можно обратиться:",
+      "list": [
+        "по вопросам справочно-консультационного характера, связанного с направлениями деятельности организации;",
+        "по вопросам выявления фактов вымогательства, взяточничества и других проявлений коррупции со стороны работников организации;",
+        "по вопросам записи на личный прием к руководству организации."
+      ]
+    },
+    "operatingModeHotline": {
+      "title": "Режим работы горячей линии:",
+      "list": [
+        "понедельник – четверг: с 9-00 до 18-00;",
+        "обеденный перерыв: с 13-00 до 13-45;",
+        "пятница: с 9-00 до 16-20;",
+        "обеденный перерыв: с 13-00 до 13-20;",
+        "выходной: суббота, воскресенье."
+      ]
+    }
+  }
+}

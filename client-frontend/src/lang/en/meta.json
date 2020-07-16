@@ -1,0 +1,20 @@
+{
+  "navbar": {
+    "home": "Номе",
+    "aboutUs": "About us",
+    "news": "News",
+    "projects": "Projects",
+    "contacts": "Contacts",
+    "internationalСooperation": "The international cooperation",
+    "technicalCommittee": "National technical committee",
+    "eappeal": "Ellectronic appeal",
+    "more": "More"
+  },
+  "settingsPanel": {
+    "fontSize": "Font size",
+    "colorScheme": "Color scheme"
+  },
+  "footer": {
+    "copyright": "НИРУП «Институт прикладных программных систем»"
+  }
+}
