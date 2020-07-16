@@ -45,9 +45,9 @@ export function createI18n(store, router) {
   router.beforeEach((to, from, next) => {
     const storageString = localStorage.getItem('ipps-site') || '{}';
     const stateLocal = JSON.parse(storageString);
+    const { locale } = stateLocal;
 
-    if (Object.keys(stateLocal).length) {
-      const { locale } = stateLocal;
+    if (locale) {
       locale && store.dispatch('app/setLocale', locale);
 
       loadLanguageAsync(locale).then(() => next());
