@@ -99,7 +99,12 @@ export default {
   );
 
   &.blur-image {
-    filter: blur(10px);
+    themify(
+      $themes,
+      @($theme) {
+      filter: blur(10px) $theme.$image--grayscale--filter;
+    }
+    );
     transform: scale(1.1);
   }
 }
