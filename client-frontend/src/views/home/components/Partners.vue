@@ -107,13 +107,22 @@ export default {
     width: 200px;
     min-height: 80px;
 
-    img {
+    .img {
       themify(
         $themes,
         @($theme) {
         filter: $theme.$image--invert--filter;
       }
       );
+
+      &.blur-image {
+        themify(
+          $themes,
+          @($theme) {
+          filter: blur(10px) $theme.$image--invert--filter;
+        }
+        );
+      }
     }
   }
 }
