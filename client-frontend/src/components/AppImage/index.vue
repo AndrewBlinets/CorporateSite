@@ -99,7 +99,7 @@ export default {
   );
 
   &.blur-image {
-    filter: blur(20px);
+    filter: blur(10px);
     transform: scale(1.1);
   }
 }
