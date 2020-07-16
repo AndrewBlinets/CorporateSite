@@ -13,7 +13,10 @@
         <div class="navigation-panel">
           <app-menu v-if="!mobile" :dark="menuShrink" />
 
+          <language :dark="!menuShrink"></language>
+
           <settings :dark="!menuShrink"></settings>
+
           <menu-button
             v-if="mobile"
             :dark="!menuShrink"
@@ -27,11 +30,14 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+
 import { Scroll } from '@/directive/scroll';
+
 import AppMenu from './components/Menu.vue';
 import AppImage from '@/components/AppImage/index.vue';
 import MenuButton from './components/MenuButton.vue';
 import Settings from './Settings';
+import Language from './Language';
 
 export default {
   name: 'Navbar',
@@ -40,6 +46,7 @@ export default {
     AppImage,
     MenuButton,
     Settings,
+    Language,
   },
   directives: {
     Scroll,
