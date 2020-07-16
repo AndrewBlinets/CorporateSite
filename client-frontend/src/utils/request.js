@@ -1,5 +1,6 @@
 import axios from 'axios';
 import router from '@/router';
+import store from '@/store';
 
 const service = axios.create({
   baseURL: '/api',
@@ -7,7 +8,12 @@ const service = axios.create({
 });
 
 service.interceptors.request.use(
-  config => config,
+  config => {
+    const { locale } = store.state.app;
+    config.headers.common['Accept-Language'] = locale;
+
+    return config;
+  },
   error => {
     return Promise.reject(error);
   },
