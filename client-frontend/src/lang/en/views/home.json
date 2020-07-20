@@ -1,7 +1,7 @@
 {
   "mainBanner": {
-    "typeOrganization": "НИРУП",
-    "title": "Институт прикладных программных систем",
+    "typeOrganization": "RUERE",
+    "title": "Software applied systems institute",
     "aboutOrganization": "A modern, dynamically developing company in the field of scientific and methodological support for the development of informatization, business analysis, the creation of electronic government information systems and the provision of IT services."
   },
   "aboutUs": {
@@ -15,7 +15,7 @@
     "more": "More"
   },
   "activities": {
-    "title": "Направления Деятельности",
+    "title": "Activities",
     "list": [
       "Анализ, проектирование и программное обеспечение информационных систем",
       "Обработка данных с применением ПО третьего лица или собственного ПО",

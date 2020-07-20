@@ -14,7 +14,13 @@
     "fontSize": "Font size",
     "colorScheme": "Color scheme"
   },
+  "contactInfoList": {
+    "address": "Address",
+    "cabinet": "Сabinet",
+    "phone": "Phone",
+    "email": "Email"
+  },
   "footer": {
-    "copyright": "НИРУП «Институт прикладных программных систем»"
+    "copyright": "RUERE «Software applied systems institute»"
   }
 }
