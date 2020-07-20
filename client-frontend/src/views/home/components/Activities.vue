@@ -2,7 +2,7 @@
   <section id="activities" class="bgr-grey">
     <div class="app-container grid-area">
       <div class="section-header">
-        <h2>Направления Деятельности</h2>
+        <h2>{{ $t('views.home.activities.title') }}</h2>
       </div>
       <div class="section-body">
         <div class="services-container">

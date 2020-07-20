@@ -3,6 +3,9 @@
     <contact-info-item
       v-for="(item, index) in contactInfo"
       :key="index"
+      :icon="item.icon"
+      :title="$t(`meta.contactInfoList.${item.title}`)"
+      :value="item.value"
       v-bind="item"
     ></contact-info-item>
   </div>
@@ -34,28 +37,28 @@ export default {
       this.address &&
         infoList.push({
           icon: faMapMarkerAlt,
-          title: 'Адрес',
+          title: 'address',
           value: this.address,
         });
 
       this.room &&
         infoList.push({
           icon: faMapMarkerAlt,
-          title: 'Кабинет',
+          title: 'cabinet',
           value: `№${this.room}`,
         });
 
       this.phone &&
         infoList.push({
           icon: faPhoneAlt,
-          title: 'Телефон',
+          title: 'phone',
           value: this.phone,
         });
 
       this.email &&
         infoList.push({
           icon: faEnvelope,
-          title: 'Email',
+          title: 'email',
           value: this.email,
         });
 
