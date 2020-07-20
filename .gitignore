@@ -1,0 +1,34 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/admin-backend/target
+/client-backend/target
+/customer-backend/target
+/dao/target
+/admin-frontend/target
+/admin-frontend/dist
+/admin-frontend/node_modules
+/customer-frontend/target
+/customer-frontend/dist
+/customer-frontend/node_modules
+/client-frontend/target
+/client-frontend/dist
+/client-frontend/node_modules
+/customer-frontend/node_modules/
