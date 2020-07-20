@@ -1,9 +1,5 @@
 <template>
-  <div
-    v-resize="handleMenu"
-    class="menu-container"
-    :class="{ 'menu-mobile': mobile }"
-  >
+  <div class="menu-container">
     <div class="menu" :class="{ 'dark-menu': dark }">
       <router-link
         v-for="(link, index) in links"
@@ -50,7 +46,6 @@
 </template>
 
 <script>
-import { Resize } from '@/directive/resize';
 import { mapState, mapActions } from 'vuex';
 import VButton from '@/components/UI/VButton';
 import VMenu from '@/components/UI/VMenu';
@@ -61,9 +56,6 @@ export default {
   components: {
     VButton,
     VMenu,
-  },
-  directives: {
-    Resize,
   },
   props: {
     dark: {
@@ -104,14 +96,8 @@ export default {
   watch: {
     $route: 'closeSidebar',
   },
-  mounted() {
-    this.handleMenu();
-  },
   methods: {
-    ...mapActions('app', ['closeSidebar', 'hasMobileDevice']),
-    handleMenu() {
-      this.hasMobileDevice(window.innerWidth < 1178);
-    },
+    ...mapActions('app', ['closeSidebar']),
   },
 };
 </script>
@@ -119,20 +105,6 @@ export default {
 <style lang="stylus" scoped>
 .menu-container {
   position: relative;
-
-  &.menu-mobile {
-    .menu {
-      flex-direction: column;
-      align-items: flex-start;
-      color: #fff;
-
-      .menu__link {
-        justify-content: flex-start;
-        width: 100%;
-        margin: 10px 0;
-      }
-    }
-  }
 }
 
 .menu {

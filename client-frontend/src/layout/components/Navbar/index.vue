@@ -1,6 +1,7 @@
 <template>
   <header
     v-scroll="handleSroll"
+    v-resize="handleResizeMenu"
     class="navbar navbar-default navbar-fixed menu-top"
     :class="{ 'menu-shrink': menuShrink }"
   >
@@ -32,6 +33,7 @@
 import { mapState, mapActions } from 'vuex';
 
 import { Scroll } from '@/directive/scroll';
+import { Resize } from '@/directive/resize';
 
 import AppMenu from './components/Menu.vue';
 import AppImage from '@/components/AppImage/index.vue';
@@ -50,6 +52,7 @@ export default {
   },
   directives: {
     Scroll,
+    Resize,
   },
   data: () => ({
     menuShrink: false,
@@ -58,9 +61,12 @@ export default {
     ...mapState('app', ['mobile', 'sidebar']),
   },
   methods: {
-    ...mapActions('app', ['openSidebar']),
+    ...mapActions('app', ['openSidebar', 'hasMobileDevice']),
     handleSroll() {
       this.menuShrink = window.scrollY > 50;
+    },
+    handleResizeMenu() {
+      this.hasMobileDevice(window.innerWidth < 910);
     },
   },
 };
