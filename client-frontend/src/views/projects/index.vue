@@ -33,7 +33,8 @@
 
 <script>
 import store from '@/store';
-import { mapState, mapGetters } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
+
 import HeaderPage from '@/components/HeaderPage';
 import ProjectCard from '@/components/ProjectCard';
 
@@ -44,17 +45,22 @@ export default {
     ProjectCard,
   },
   data: () => ({
-    titlePage: 'Проекты',
     imagePageId: 17,
   }),
   computed: {
     ...mapState({
       projects: state => state.project.projectsList,
       hasProjectsFull: state => state.project.hasProjectsFull,
+      locale: state => state.app.locale,
     }),
     ...mapGetters({
       page: 'project/page',
     }),
+  },
+  watch: {
+    locale() {
+      this.getProjects();
+    },
   },
   beforeRouteEnter(to, from, next) {
     store.dispatch('project/getProjects', { size: 9, page: 0 }).then(() => {
@@ -62,9 +68,10 @@ export default {
     });
   },
   destroyed() {
-    store.dispatch('project/resetProjects');
+    this.resetProjects();
   },
   methods: {
+    ...mapActions('project', ['getProjects', 'resetProjects']),
     loadMore() {
       store.dispatch('project/getProjects', { page: this.page + 1 });
     },

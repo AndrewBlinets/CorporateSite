@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import NewsCard from '@/components/NewsCard';
 
 export default {
@@ -44,11 +44,25 @@ export default {
   components: {
     NewsCard,
   },
+  data: () => ({
+    params: { size: 3, page: 0 },
+  }),
   computed: {
-    ...mapState('news', ['newsList']),
+    ...mapState({
+      locale: state => state.app.locale,
+      newsList: state => state.news.newsList,
+    }),
+  },
+  watch: {
+    locale() {
+      this.getNews(this.params);
+    },
   },
   mounted() {
-    this.$store.dispatch('news/getNews', { size: 3, page: 0 });
+    this.getNews(this.params);
+  },
+  methods: {
+    ...mapActions('news', ['getNews']),
   },
 };
 </script>

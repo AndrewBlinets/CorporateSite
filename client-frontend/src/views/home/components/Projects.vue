@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import ProjectCard from '@/components/ProjectCard';
 
 export default {
@@ -43,13 +43,25 @@ export default {
   components: {
     ProjectCard,
   },
+  data: () => ({
+    params: { size: 3, page: 0 },
+  }),
   computed: {
     ...mapState({
+      locale: state => state.app.locale,
       projects: state => state.project.projectsList,
     }),
   },
-  created() {
-    this.$store.dispatch('project/getProjects', { size: 3, page: 0 });
+  watch: {
+    locale() {
+      this.getProjects(this.params);
+    },
+  },
+  mounted() {
+    this.getProjects(this.params);
+  },
+  methods: {
+    ...mapActions('project', ['getProjects']),
   },
 };
 </script>

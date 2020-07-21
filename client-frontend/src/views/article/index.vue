@@ -29,7 +29,11 @@
 
 <script>
 import { getNewsById } from '@/api/news';
+
+import { mapState } from 'vuex';
+
 import { Resize } from '@/directive/resize';
+
 import HeaderPage from '@/components/HeaderPage';
 import NewsDetails from '@/components/NewsDetails';
 import ContentPage from '@/components/ContentPage';
@@ -46,6 +50,9 @@ export default {
   directives: {
     Resize,
   },
+  props: {
+    id: Number,
+  },
   data: () => ({
     article: {
       title: '',
@@ -56,6 +63,16 @@ export default {
     },
     contentWidth: null,
   }),
+  computed: {
+    ...mapState('app', ['locale']),
+  },
+  watch: {
+    locale() {
+      getNewsById(this.id).then(data => {
+        this.setData(data);
+      });
+    },
+  },
   beforeRouteEnter(to, from, next) {
     const id = to.params.id;
     getNewsById(id).then(article => {
@@ -65,7 +82,7 @@ export default {
   beforeRouteUpdate(to, from, next) {
     const id = to.params.id;
     getNewsById(id).then(data => {
-      this.article = { ...data };
+      this.setData(data);
       next();
     });
   },

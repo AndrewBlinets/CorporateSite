@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header-page :image="imagePageId">
+    <header-page :image="16">
       <h1>{{ $t('views.news.title') }}</h1>
     </header-page>
     <div class="body-page">
@@ -51,13 +51,15 @@ export default {
     ...mapState({
       news: state => state.news.newsList,
       hasNewsFull: state => state.news.hasNewsFull,
+      locale: state => state.app.locale,
     }),
     ...mapGetters('news', ['page']),
   },
-  data: () => ({
-    titlePage: 'Новости',
-    imagePageId: 16,
-  }),
+  watch: {
+    locale() {
+      store.dispatch('news/getNews');
+    },
+  },
   beforeRouteEnter(to, from, next) {
     store.dispatch('news/getNews', { size: 9, page: 0 }).then(() => {
       next();

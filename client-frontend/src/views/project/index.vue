@@ -48,7 +48,13 @@ export default {
   computed: {
     ...mapState({
       project: state => state.project.project,
+      locale: state => state.app.locale,
     }),
+  },
+  watch: {
+    locale() {
+      store.dispatch('project/getProject', this.id);
+    },
   },
   beforeRouteEnter(to, from, next) {
     const { id } = to.params;
