@@ -7,6 +7,7 @@
         v-if="showMenu"
         v-click-outside="handleClickOutsideMenu"
         class="v-memu__container"
+        @click="toggleMenu"
       >
         <slot></slot>
       </div>
@@ -44,7 +45,7 @@ export default {
 
   .v-memu__container {
     position: absolute;
-    min-width: 240px;
+    min-width: 130px;
     top: 70px;
     right: 0;
     padding: 8px 0;

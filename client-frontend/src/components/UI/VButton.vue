@@ -15,6 +15,10 @@
 export default {
   name: 'VButton',
   props: {
+    block: {
+      type: Boolean,
+      default: false,
+    },
     color: String,
     dark: Boolean,
     fontSize: {
@@ -36,6 +40,7 @@ export default {
       return {
         'v-btn': true,
         [`v-size--${this.fontSize}`]: true,
+        'v-btn--block': this.block,
         'v-btn--contained': this.contained,
         'v-btn--text': this.text,
         'theme--dark': this.dark,
@@ -54,6 +59,8 @@ export default {
 <style lang="stylus" scoped>
 .v-btn {
   position: relative;
+  display: flex;
+  align-items: center;
   height: 36px;
   min-width: 36px;
   padding: 0 16px;
@@ -88,6 +95,11 @@ export default {
 
   &.v-btn--contained {
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  &.v-btn--block {
+    width: 100%;
+    justify-content: center;
   }
 
   &.theme--dark {

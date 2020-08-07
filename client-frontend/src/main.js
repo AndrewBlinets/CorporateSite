@@ -11,6 +11,10 @@ import router from '@/router';
 import store from '@/store';
 import * as filters from '@/filters';
 
+import { createI18n } from '@/i18n';
+
+const i18n = createI18n(store, router);
+
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
@@ -25,5 +29,6 @@ Object.keys(filters).forEach(key => {
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App),
 }).$mount('#app');

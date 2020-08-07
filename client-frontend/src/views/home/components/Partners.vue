@@ -5,7 +5,7 @@
     </div>
     <div class="app-container grid-area">
       <div class="section-header">
-        <h2>Партнеры</h2>
+        <h2>{{ $t('views.home.partners.title') }}</h2>
       </div>
       <div class="section-body">
         <div class="partners-container mx-n3">
@@ -107,13 +107,22 @@ export default {
     width: 200px;
     min-height: 80px;
 
-    img {
+    .img {
       themify(
         $themes,
         @($theme) {
         filter: $theme.$image--invert--filter;
       }
       );
+
+      &.blur-image {
+        themify(
+          $themes,
+          @($theme) {
+          filter: blur(10px) $theme.$image--invert--filter;
+        }
+        );
+      }
     }
   }
 }

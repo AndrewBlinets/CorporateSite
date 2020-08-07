@@ -6,14 +6,9 @@
       </div>
       <div class="app-container grid grid-header">
         <div class="banner-content">
-          <h4>НИРУП</h4>
-          <h1>Институт прикладных программных систем</h1>
-          <p>
-            Современная, динамично развивающаяся компания в области
-            научно-методического обеспечения процессов развития информатизации,
-            бизнес-анализа, создания информационных систем электронного
-            правительства и предоставления услуг в области IT.
-          </p>
+          <h4>{{ $t('views.home.mainBanner.typeOrganization') }}</h4>
+          <h1>{{ $t('views.home.mainBanner.title') }}</h1>
+          <p>{{ $t('views.home.mainBanner.aboutOrganization') }}</p>
           <social-links />
         </div>
       </div>

@@ -29,7 +29,13 @@ export default {
   computed: {
     ...mapState({
       page: state => state.page.page,
+      locale: state => state.app.locale,
     }),
+  },
+  watch: {
+    locale() {
+      store.dispatch('page/getPage', 2);
+    },
   },
   beforeRouteEnter(to, from, next) {
     store.dispatch('page/getPage', 2).then(() => {

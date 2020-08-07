@@ -1,9 +1,5 @@
 <template>
-  <div
-    v-resize="handleMenu"
-    class="menu-container"
-    :class="{ 'menu-mobile': mobile }"
-  >
+  <div class="menu-container">
     <div class="menu" :class="{ 'dark-menu': dark }">
       <router-link
         v-for="(link, index) in links"
@@ -11,13 +7,13 @@
         :to="{ name: link.path }"
         class="menu__link"
       >
-        {{ link.name }}
+        {{ $t(`meta.navbar.${link.name}`) }}
       </router-link>
 
       <v-menu>
         <template v-slot:activator="{ on, attrs }">
           <v-button text v-bind="attrs" v-on="on">
-            Ещё
+            {{ $t('meta.navbar.more') }}
             <font-awesome-icon :icon="caretDownIcon" class="icon-right" />
           </v-button>
         </template>
@@ -27,21 +23,21 @@
             :to="{ name: 'eastern-partnership' }"
             class="sub-nav--link"
           >
-            Международное Сотрудничество
+            {{ $t('meta.navbar.internationalСooperation') }}
           </router-link>
 
           <router-link
             :to="{ name: 'technical-committee' }"
             class="sub-nav--link"
           >
-            Национальный Технический Комитет
+            {{ $t('meta.navbar.technicalCommittee') }}
           </router-link>
 
           <router-link
             :to="{ name: 'electronic-appeal' }"
             class="sub-nav--link"
           >
-            Электронное обращение
+            {{ $t('meta.navbar.eappeal') }}
           </router-link>
         </div>
       </v-menu>
@@ -50,7 +46,6 @@
 </template>
 
 <script>
-import { Resize } from '@/directive/resize';
 import { mapState, mapActions } from 'vuex';
 import VButton from '@/components/UI/VButton';
 import VMenu from '@/components/UI/VMenu';
@@ -62,9 +57,6 @@ export default {
     VButton,
     VMenu,
   },
-  directives: {
-    Resize,
-  },
   props: {
     dark: {
       type: Boolean,
@@ -74,23 +66,23 @@ export default {
   data: () => ({
     links: [
       {
-        name: 'Главная',
+        name: 'home',
         path: 'home',
       },
       {
-        name: 'О нас',
+        name: 'aboutUs',
         path: 'about-us',
       },
       {
-        name: 'Новости',
+        name: 'news',
         path: 'news',
       },
       {
-        name: 'Проекты',
+        name: 'projects',
         path: 'projects',
       },
       {
-        name: 'Контакты',
+        name: 'contacts',
         path: 'contacts',
       },
     ],
@@ -104,14 +96,8 @@ export default {
   watch: {
     $route: 'closeSidebar',
   },
-  mounted() {
-    this.handleMenu();
-  },
   methods: {
-    ...mapActions('app', ['closeSidebar', 'hasMobileDevice']),
-    handleMenu() {
-      this.hasMobileDevice(window.innerWidth < 1178);
-    },
+    ...mapActions('app', ['closeSidebar']),
   },
 };
 </script>
@@ -119,20 +105,6 @@ export default {
 <style lang="stylus" scoped>
 .menu-container {
   position: relative;
-
-  &.menu-mobile {
-    .menu {
-      flex-direction: column;
-      align-items: flex-start;
-      color: #fff;
-
-      .menu__link {
-        justify-content: flex-start;
-        width: 100%;
-        margin: 10px 0;
-      }
-    }
-  }
 }
 
 .menu {

@@ -1,0 +1,26 @@
+{
+  "navbar": {
+    "home": "Галоўная",
+    "aboutUs": "Аб нас",
+    "news": "Навіны",
+    "projects": "Праекты",
+    "contacts": "Кантакты",
+    "internationalСooperation": "Міжнароднае супрацоўніцтва",
+    "technicalCommittee": "Нацыянальны тэхнічны камітэт",
+    "eappeal": "Электронны зварот",
+    "more": "Яшчэ"
+  },
+  "settingsPanel": {
+    "fontSize": "Памер шрыфта",
+    "colorScheme": "Каляровая схема"
+  },
+  "contactInfoList": {
+    "address": "Адрас",
+    "cabinet": "Кабінет",
+    "phone": "Тэлефон",
+    "email": "Email"
+  },
+  "footer": {
+    "copyright": "НІРУП «Інстытут прыкладных праграмных сістэм»"
+  }
+}

@@ -26,7 +26,7 @@
           <div class="logo">
             <app-image :id="142" name="ИППС" backgroundColor="#ffffff00" />
           </div>
-          <p>© НИРУП «Институт прикладных программных систем»</p>
+          <p>© {{ $t('meta.footer.copyright') }}</p>
         </div>
         <social-links />
       </div>

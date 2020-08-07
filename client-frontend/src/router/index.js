@@ -30,6 +30,7 @@ export const constantRoutes = [
         path: 'news/:id',
         name: 'article',
         component: () => import('@/views/article'),
+        props: true,
       },
       {
         path: 'projects',
@@ -40,6 +41,7 @@ export const constantRoutes = [
         path: 'projects/:id',
         name: 'projectsById',
         component: () => import('@/views/project'),
+        props: true,
       },
       {
         path: 'eastern-partnership',

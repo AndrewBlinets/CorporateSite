@@ -12,6 +12,7 @@ const state = {
   sidebar: false,
   theme: 'theme-default',
   fontSize: 'font-size__default',
+  locale: 'ru',
 };
 
 const mutations = {
@@ -26,6 +27,9 @@ const mutations = {
   },
   SET_FONT_SIZE: (state, value) => {
     state.fontSize = `font-size--${value}`;
+  },
+  SET_LOCALE: (state, lang) => {
+    state.locale = lang;
   },
 };
 
@@ -50,6 +54,11 @@ const actions = {
   setFontSize({ commit }, fontSize) {
     setLocalStorage({ fontSize: fontSize });
     commit('SET_FONT_SIZE', fontSize);
+    return Promise.resolve();
+  },
+  setLocale({ commit }, lang) {
+    setLocalStorage({ locale: lang });
+    commit('SET_LOCALE', lang);
     return Promise.resolve();
   },
 };

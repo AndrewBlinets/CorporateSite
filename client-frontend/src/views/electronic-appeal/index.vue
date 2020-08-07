@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-page :image="18">
-      <h1>Электронное Обращение</h1>
+      <h1>{{ $t('views.e-appeal.title') }}</h1>
     </header-page>
     <div class="app-container body-page">
       <div class="row">

@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     replaceImages(content) {
-      const regexp = /<img src="http:\/\/www.ipps.by:5454\/client-api\/image\/(?<id>\d+)">/g;
+      const regexp = /<img src="http:\/\/www.ipps.by:5454\/client\/api\/image\/(?<id>\d+)">/g;
       const replaceContent = content.replace(regexp, (...match) => {
         let groups = match.pop();
 
@@ -53,8 +53,8 @@ export default {
       return replaceContent;
     },
     replaceYouTube(content) {
-      // eslint-disable-next-line no-useless-escape
-      const regexp = /<oembed url="(?<url>(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+)"><\/oembed>/g;
+      const regexp = /<oembed url="(?<url>(.*?))"><\/oembed>/g;
+
       const replaceContent = content.replace(regexp, (...match) => {
         let groups = match.pop();
         this.videoId.set(groups.url, getIdFromURL(groups.url));

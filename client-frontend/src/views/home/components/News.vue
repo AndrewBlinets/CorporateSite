@@ -2,7 +2,7 @@
   <section id="news">
     <div class="app-container grid-area">
       <div class="section-header">
-        <h2>Новости</h2>
+        <h2>{{ $t('views.home.news.title') }}</h2>
       </div>
       <div class="section-body">
         <div class="row mx-md-n4">
@@ -26,7 +26,7 @@
         <div class="button-container">
           <div class="button-item">
             <router-link :to="{ name: 'news' }" class="btn btn-main">
-              Все Новости
+              {{ $t('views.home.news.allNews') }}
             </router-link>
           </div>
         </div>
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import NewsCard from '@/components/NewsCard';
 
 export default {
@@ -44,11 +44,25 @@ export default {
   components: {
     NewsCard,
   },
+  data: () => ({
+    params: { size: 3, page: 0 },
+  }),
   computed: {
-    ...mapState('news', ['newsList']),
+    ...mapState({
+      locale: state => state.app.locale,
+      newsList: state => state.news.newsList,
+    }),
+  },
+  watch: {
+    locale() {
+      this.getNews(this.params);
+    },
   },
   mounted() {
-    this.$store.dispatch('news/getNews', { size: 3, page: 0 });
+    this.getNews(this.params);
+  },
+  methods: {
+    ...mapActions('news', ['getNews']),
   },
 };
 </script>

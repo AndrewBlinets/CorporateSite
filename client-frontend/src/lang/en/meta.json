@@ -1,0 +1,26 @@
+{
+  "navbar": {
+    "home": "Номе",
+    "aboutUs": "About us",
+    "news": "News",
+    "projects": "Projects",
+    "contacts": "Contacts",
+    "internationalСooperation": "The international cooperation",
+    "technicalCommittee": "National technical committee",
+    "eappeal": "Ellectronic appeal",
+    "more": "More"
+  },
+  "settingsPanel": {
+    "fontSize": "Font size",
+    "colorScheme": "Color scheme"
+  },
+  "contactInfoList": {
+    "address": "Address",
+    "cabinet": "Сabinet",
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "footer": {
+    "copyright": "RUERE «Software applied systems institute»"
+  }
+}

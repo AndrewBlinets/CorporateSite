@@ -2,7 +2,7 @@
   <transition name="slide-fade">
     <div class="visually-panel__container">
       <div ref="sdfsdf" class="mb-3">
-        <div class="subheader">Размер шрифта</div>
+        <div class="subheader">{{ $t('meta.settingsPanel.fontSize') }}</div>
         <div class="content">
           <div class="row mx-n1">
             <div class="col px-1">
@@ -33,8 +33,8 @@
       </div>
 
       <div>
-        <div class="subheader">Цветовая схема</div>
-        <div class="content">
+        <div class="subheader">{{ $t('meta.settingsPanel.colorScheme') }}</div>
+        <div class="content mb-3">
           <div class="row mx-n2 mb-2">
             <div class="col px-2">
               <v-button color="#1461ff" @click="setThemeApp('default')" />

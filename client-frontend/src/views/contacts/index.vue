@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-page :image="page.imageId">
-      <h1>{{ page.name }}</h1>
+      <h1>{{ $t('views.contacts.title') }}</h1>
     </header-page>
     <div class="body-page">
       <div class="app-container">
@@ -17,6 +17,9 @@
 
 <script>
 import { getContacts } from '@/api/contacts';
+
+import { mapState } from 'vuex';
+
 import HeaderPage from '@/components/HeaderPage';
 import CategoryContacts from './CategoryContacts';
 
@@ -33,10 +36,17 @@ export default {
     },
     contactsList: [],
   }),
+  computed: {
+    ...mapState('app', ['locale']),
+  },
+  watch: {
+    locale() {
+      getContacts().then(contactsList => this.setData(contactsList));
+    },
+  },
   beforeRouteEnter(to, from, next) {
     getContacts().then(contactsList => {
       next(vm => vm.setData(contactsList));
-      next();
     });
   },
   methods: {
