@@ -2,7 +2,9 @@
   "mainBanner": {
     "typeOrganization": "RUERE",
     "title": "Software applied systems institute",
-    "aboutOrganization": "A modern, dynamically developing company in the field of scientific and methodological support for the development of informatization, business analysis, the creation of electronic government information systems and the provision of IT services."
+    "aboutOrganization": "A modern, dynamically developing company in the field of scientific and methodological support for the development of informatization, business analysis, the creation of electronic government information systems and the provision of IT services.",
+    "membership-infopark": "Член научно-технологической ассоциации «Инфопарк».",
+    "membership-htp": "Резидент Парка высоких технологий."
   },
   "aboutUs": {
     "title": "About Us",

@@ -9,6 +9,10 @@
           <h4>{{ $t('views.home.mainBanner.typeOrganization') }}</h4>
           <h1>{{ $t('views.home.mainBanner.title') }}</h1>
           <p>{{ $t('views.home.mainBanner.aboutOrganization') }}</p>
+          <p class="mb-0">
+            {{ $t('views.home.mainBanner.membership-infopark') }}
+          </p>
+          <p>{{ $t('views.home.mainBanner.membership-htp') }}</p>
           <social-links />
         </div>
       </div>
@@ -54,7 +58,7 @@ export default {
 <style lang="stylus" scoped>
 .main-banner {
   position: relative;
-  height: 700px;
+  height: 755px;
   overflow: hidden;
 
   &:before {
