@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-resize="handelResizeBanner">
     <div class="main-banner">
       <div class="banner-image">
         <app-image :id="18"></app-image>
@@ -14,6 +14,10 @@
           </p>
           <p>{{ $t('views.home.mainBanner.membership-htp') }}</p>
           <social-links />
+        </div>
+
+        <div v-if="showBannerImg" class="banner-img-content">
+          <img src="../../assets/logoIPPS.png" alt="" />
         </div>
       </div>
     </div>
@@ -39,6 +43,8 @@ import Partners from './components/Partners';
 import Projects from './components/Projects';
 import SocialLinks from '@/components/SocialLinks';
 
+import { Resize } from '@/directive/resize';
+
 export default {
   name: 'Home',
   components: {
@@ -51,6 +57,20 @@ export default {
     Partners,
     Projects,
     SocialLinks,
+  },
+  directives: {
+    Resize,
+  },
+  data: () => ({
+    showBannerImg: null,
+  }),
+  created() {
+    this.handelResizeBanner();
+  },
+  methods: {
+    handelResizeBanner() {
+      this.showBannerImg = window.innerWidth > 840;
+    },
   },
 };
 </script>
@@ -133,6 +153,18 @@ export default {
         color: $theme.$primary--light--color;
       }
       );
+    }
+  }
+
+  .banner-img-content {
+    display: flex;
+    align-items center;
+    justify-content: center;
+
+    img {
+      position: relative;
+      width: 325px;
+      z-index: 4;
     }
   }
 }
