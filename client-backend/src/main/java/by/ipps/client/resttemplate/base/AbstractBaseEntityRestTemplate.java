@@ -15,10 +15,11 @@ import java.util.List;
 @Log4j2
 public abstract class AbstractBaseEntityRestTemplate<E> implements BaseEntityRestTemplate<E> {
 
-        protected static final String URL_SERVER = "http://192.168.1.125:8080/dao/";// server
+//        protected static final String URL_SERVER = "http://192.168.1.125:8080/dao/";// server
 //    protected static final String URL_SERVER = "http://192.168.1.89:8082/dao/";// local work
 //    protected static final String URL_SERVER = "http://localhost:8082/dao/";// local home
 //    protected static final String URL_SERVER = "http://localhost:8080/dao/";// local home
+    protected static final String URL_SERVER = "http://localhost:8081/dao/";// local home
     private static final String LANGUAGE = "language";
     private static final String SECTION = "section";
     private static final String DEPARTAMENT = "department";

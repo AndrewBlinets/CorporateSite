@@ -18,7 +18,7 @@ public class ContactRestTemplate {
 
     //    protected static final String URL_SERVER = "http://192.168.1.125:8080/dao/contact";
 //    protected static final String URL_SERVER = "http://localhost:8082/dao/contact/client";
-    protected static final String URL_SERVER = "http://localhost:8080/dao/contact/client";
+    protected static final String URL_SERVER = "http://localhost:8081/dao/contact/client";
 
     protected final RestTemplate restTemplate;
 

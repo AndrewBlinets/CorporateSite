@@ -3,7 +3,7 @@ package by.ipps.dao.service.impl;
 import by.ipps.dao.entity.Customer;
 import by.ipps.dao.entity.NewsForCustomer;
 import by.ipps.dao.entity.Project;
-import by.ipps.dao.service.NewsForCustomerRepository;
+import by.ipps.dao.repository.NewsForCustomerRepository;
 import by.ipps.dao.service.NewsForCustomerService;
 import by.ipps.dao.service.base.BaseEntityServiceImpl;
 import org.springframework.data.domain.Page;

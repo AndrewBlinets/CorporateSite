@@ -1,4 +1,4 @@
-package by.ipps.dao.service;
+package by.ipps.dao.repository;
 
 import by.ipps.dao.entity.Customer;
 import by.ipps.dao.entity.NewsForCustomer;

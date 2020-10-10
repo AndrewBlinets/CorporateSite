@@ -17,7 +17,7 @@ import java.util.Objects;
 public class ImageRestTemplate {
     //    protected static final String URL_SERVER = "http://192.168.1.125:8080/dao/file";
 //    protected static final String URL_SERVER = "http://localhost:8082/dao/file";
-    protected static final String URL_SERVER = "http://localhost:8080/dao/file";
+    protected static final String URL_SERVER = "http://localhost:8081/dao/file";
 
     protected final RestTemplate restTemplate;
 
