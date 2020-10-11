@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Contact extends BaseEntity {
 
-    private UserContact userPortal;
-    private Position position;
-    private String note;
+  private UserContact userPortal;
+  private Position position;
+  private String note;
 }

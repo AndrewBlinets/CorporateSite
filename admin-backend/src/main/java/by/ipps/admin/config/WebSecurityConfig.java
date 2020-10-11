@@ -22,12 +22,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-  @Autowired
-  private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
-  @Autowired
-  private UserDetailsService jwtUserDetailsService;
-  @Autowired
-  private JwtRequestFilter jwtRequestFilter;
+  @Autowired private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+  @Autowired private UserDetailsService jwtUserDetailsService;
+  @Autowired private JwtRequestFilter jwtRequestFilter;
 
   @Autowired
   public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -68,8 +65,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .hasAuthority("super-admin")
         .antMatchers("/company/**")
         .hasAuthority("super-admin")
-//        .antMatchers("/news/**")
-//        .hasAuthority("super-admin")
+        //        .antMatchers("/news/**")
+        //        .hasAuthority("super-admin")
         //                .antMatchers("/department").hasRole("super-admin")
         //                .antMatchers("/hello").hasRole("superAdmin")
         .and()

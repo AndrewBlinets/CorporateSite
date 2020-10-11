@@ -21,6 +21,4 @@ public class ApplicationInitializer extends SpringBootServletInitializer {
   protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
     return builder.sources(ApplicationInitializer.class);
   }
-
 }
-

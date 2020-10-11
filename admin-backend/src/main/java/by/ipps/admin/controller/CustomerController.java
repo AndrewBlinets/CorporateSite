@@ -6,15 +6,19 @@ import by.ipps.admin.entity.Customer;
 import by.ipps.admin.entity.CustomerForList;
 import by.ipps.admin.entity.ProjectForCustomer;
 import by.ipps.admin.utils.resttemplate.CustomerRestTemplate;
+import java.util.Date;
+import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.List;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/customer")
@@ -22,8 +26,7 @@ import java.util.List;
 public class CustomerController extends BaseEntityAbstractController<Customer, CustomerRestTemplate>
     implements BaseEntityController<Customer> {
 
-  @Autowired
-  private PasswordEncoder passwordEncoder;
+  @Autowired private PasswordEncoder passwordEncoder;
 
   protected CustomerController(CustomerRestTemplate customerRestTemplate) {
     super(customerRestTemplate, "customer", "id");
@@ -59,7 +62,8 @@ public class CustomerController extends BaseEntityAbstractController<Customer, C
   }
 
   @GetMapping("/getList/{project}")
-  public ResponseEntity<List<CustomerForList>> getListCustomerWithoutProject(@PathVariable long project) {
+  public ResponseEntity<List<CustomerForList>> getListCustomerWithoutProject(
+      @PathVariable long project) {
     return this.baseEntityTemplate.getListCustomerWithoutProject(project);
   }
 }

@@ -6,11 +6,15 @@ import by.ipps.admin.custom.CustomPage;
 import by.ipps.admin.entity.Department;
 import by.ipps.admin.entity.Project;
 import by.ipps.admin.utils.resttemplate.ProjectRestTemplate;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/project")
@@ -30,9 +34,9 @@ public class ProjectController extends BaseEntityAbstractController<Project, Pro
       long sheet,
       HttpServletRequest httpServletRequest) {
     List<Long> departments = (List<Long>) this.getInfoFromToken(httpServletRequest, "Department");
-//    if(department != null){
-//
-//    }
+    //    if(department != null){
+    //
+    //    }
     return super.get(id, language, department, sheet, httpServletRequest);
   }
 
@@ -53,10 +57,9 @@ public class ProjectController extends BaseEntityAbstractController<Project, Pro
       long department,
       long sheet,
       HttpServletRequest httpServletRequest) {
-    if(department == 0){
+    if (department == 0) {
       List<Long> departments = (List<Long>) this.getInfoFromToken(httpServletRequest, "Department");
-      if (!departments.isEmpty())
-        department = Long.parseLong(String.valueOf(departments.get(0)));
+      if (!departments.isEmpty()) department = Long.parseLong(String.valueOf(departments.get(0)));
     }
     return super.getAll(page, size, sort, language, department, sheet, httpServletRequest);
   }
@@ -64,27 +67,28 @@ public class ProjectController extends BaseEntityAbstractController<Project, Pro
   @Override
   public ResponseEntity<List<Project>> getAll(
       String language, long department, long sheet, HttpServletRequest httpServletRequest) {
-    if(department == 0){
+    if (department == 0) {
       List<Long> departments = (List<Long>) this.getInfoFromToken(httpServletRequest, "Department");
-      if (!departments.isEmpty())
-        department = Long.parseLong(String.valueOf(departments.get(0)));
+      if (!departments.isEmpty()) department = Long.parseLong(String.valueOf(departments.get(0)));
     }
     return super.getAll(language, department, sheet, httpServletRequest);
   }
 
   @PostMapping(value = "/setCustomers/{project}")
   public ResponseEntity<Boolean> asd(
-          HttpServletRequest request, @PathVariable long project, @RequestBody List<Long> customers) {
+      HttpServletRequest request, @PathVariable long project, @RequestBody List<Long> customers) {
     return this.baseEntityTemplate.setCustomer(project, customers);
   }
 
   @PostMapping("/publicForClient/{project}")
-  public ResponseEntity<Boolean> setStatusProject(@PathVariable long project, @RequestBody boolean status){
+  public ResponseEntity<Boolean> setStatusProject(
+      @PathVariable long project, @RequestBody boolean status) {
     return this.baseEntityTemplate.publicForClient(project, status);
   }
 
   @PostMapping("/publicForCustomer/{project}")
-  public ResponseEntity<Boolean> publicProjectForCusatomer(@PathVariable long project, @RequestBody boolean status){
+  public ResponseEntity<Boolean> publicProjectForCusatomer(
+      @PathVariable long project, @RequestBody boolean status) {
     return this.baseEntityTemplate.publicForCustomer(project, status);
   }
 }

@@ -3,25 +3,27 @@ package by.ipps.admin.utils;
 import by.ipps.admin.entity.User;
 import by.ipps.admin.entity.UserAuth;
 import by.ipps.admin.exception.InvalidJwtAuthenticationException;
-import io.jsonwebtoken.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
-import javax.servlet.http.HttpServletRequest;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
+import io.jsonwebtoken.JwtException;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 @Component
 public class JwtTokenUtil implements Serializable {
 
   public static final long JWT_TOKEN_VALIDITY = 24 * 60 * 60;
   private static final long serialVersionUID = -2550185165626007488L;
-  @Autowired
-  private JwtRevokedTokensStore jwtRevokedTokensStore;
+  @Autowired private JwtRevokedTokensStore jwtRevokedTokensStore;
 
   @Value("${jwt.secret}")
   private String secret;
@@ -76,11 +78,7 @@ public class JwtTokenUtil implements Serializable {
     try {
       Jws<Claims> claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
 
-      if (claims.getBody().getExpiration().before(new Date())) {
-        return false;
-      }
-
-      return true;
+      return !claims.getBody().getExpiration().before(new Date());
     } catch (JwtException | IllegalArgumentException e) {
       throw new InvalidJwtAuthenticationException("Expired or invalid JWT token");
     }
@@ -93,7 +91,7 @@ public class JwtTokenUtil implements Serializable {
   public String resolveToken(HttpServletRequest req) {
     String bearerToken = req.getHeader("Authorization");
     if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
-      return bearerToken.substring(7, bearerToken.length());
+      return bearerToken.substring(7);
     }
     return null;
   }

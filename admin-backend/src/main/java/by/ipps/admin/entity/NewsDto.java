@@ -1,12 +1,11 @@
 package by.ipps.admin.entity;
 
+import java.io.Serializable;
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.io.Serializable;
-import java.util.Date;
 
 @Getter
 @Setter

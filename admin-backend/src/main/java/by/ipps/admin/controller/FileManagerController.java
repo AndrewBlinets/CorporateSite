@@ -5,20 +5,27 @@ import by.ipps.admin.entity.UserAuth;
 import by.ipps.admin.exception.SaveFileException;
 import by.ipps.admin.utils.RestRequestToDao;
 import by.ipps.admin.utils.resttemplate.FileManagerRestTemplate;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Objects;
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/file")
@@ -26,7 +33,7 @@ import java.util.Objects;
 public class FileManagerController {
 
   private final FileManagerRestTemplate fileManagerRestTemplate;
-  private RestRequestToDao restRequestToDao;
+  private final RestRequestToDao restRequestToDao;
 
   public FileManagerController(
       FileManagerRestTemplate fileManagerRestTemplate, RestRequestToDao restRequestToDao) {
@@ -162,14 +169,14 @@ public class FileManagerController {
   @GetMapping(value = "/{id}")
   @ResponseBody
   public ResponseEntity<HttpStatus> getImageById(
-          @PathVariable long id, HttpServletResponse response) {
+      @PathVariable long id, HttpServletResponse response) {
     return fileManagerRestTemplate.getById(id, response);
   }
 
   @GetMapping(value = "/relize/{id}")
   @ResponseBody
   public ResponseEntity<HttpStatus> getByIdRelize(
-          @PathVariable long id, HttpServletResponse response) {
+      @PathVariable long id, HttpServletResponse response) {
     return fileManagerRestTemplate.getByIdRelize(id, response);
   }
 

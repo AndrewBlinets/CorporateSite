@@ -9,12 +9,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class BlockLanguageVersion extends BaseEntity {
+public class BlockLanVer extends BaseEntity {
 
   private String content;
   private String codeLanguage;
 
-  public BlockLanguageVersion(long id, String content, String codeLanguage) {
+  public BlockLanVer(long id, String content, String codeLanguage) {
     super(id);
     this.content = content;
     this.codeLanguage = codeLanguage;

@@ -2,9 +2,8 @@ package by.ipps.admin.controller.base;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import org.springframework.beans.factory.annotation.Value;
-
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Value;
 
 public class BaseInfoForController {
 

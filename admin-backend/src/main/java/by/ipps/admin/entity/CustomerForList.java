@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerForList extends BaseEntity {
-    protected String name;
-    protected String surName;
-    protected String patronicName;
+  protected String name;
+  protected String surName;
+  protected String patronicName;
 }

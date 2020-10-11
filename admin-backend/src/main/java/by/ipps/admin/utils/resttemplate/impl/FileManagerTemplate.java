@@ -3,14 +3,13 @@ package by.ipps.admin.utils.resttemplate.impl;
 import by.ipps.admin.entity.FileManager;
 import by.ipps.admin.utils.resttemplate.FileManagerRestTemplate;
 import by.ipps.admin.utils.resttemplate.base.AbstractBaseEntityRestTemplate;
+import java.util.Objects;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import javax.servlet.http.HttpServletResponse;
-import java.util.Objects;
 
 @Component
 public class FileManagerTemplate extends AbstractBaseEntityRestTemplate<FileManager>
