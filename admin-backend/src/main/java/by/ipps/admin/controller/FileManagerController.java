@@ -53,7 +53,7 @@ public class FileManagerController {
     return ResponseEntity.ok(
         "{"
             + "    \"urls\": {"
-            + "        \"default\": \"http://www.ipps.by:5454/client/api/image/"
+            + "        \"default\": \"/api/image/"
             + getStringResponseEntity(upload)
             + "\""
             + "    }"
