@@ -4,6 +4,12 @@
       <div class="app-container">
         <div class="links">
           <a
+            href="https://www.mpt.gov.by/ru/news/01-02-2018-6963"
+            target="_blank"
+          >
+            <img src="../../assets/bunner_min-2021_god_ed_mal.jpg" alt="" />
+          </a>
+          <a
             href="http://xn----7sbgfh2alwzdhpc0c.xn--90ais/RatingPortal"
             target="_blank"
           >
