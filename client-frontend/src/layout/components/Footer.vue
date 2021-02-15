@@ -4,10 +4,18 @@
       <div class="app-container">
         <div class="links">
           <a
+            v-if="locale === 'ru'"
             href="https://www.mpt.gov.by/ru/news/01-02-2018-6963"
             target="_blank"
           >
             <img src="../../assets/bunner_min-2021_god_ed_mal.jpg" alt="" />
+          </a>
+          <a
+            v-if="locale === 'by'"
+            href="https://www.mpt.gov.by/be/news/26-02-2018-2796"
+            target="_blank"
+          >
+            <img src="../../assets/bunner_min-2021_god_ed_mal-bel.jpg" alt="" />
           </a>
           <a
             href="http://xn----7sbgfh2alwzdhpc0c.xn--90ais/RatingPortal"
@@ -41,16 +49,26 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 import { getImage } from '@/api/index';
 import AppImage from '@/components/AppImage/index.vue';
 import SocialLinks from '@/components/SocialLinks';
 
 export default {
   name: 'Footer',
+
   components: {
     AppImage,
     SocialLinks,
   },
+
+  computed: {
+    ...mapState({
+      locale: state => state.app.locale,
+    }),
+  },
+
   methods: {
     getImage(id) {
       return getImage(id);
