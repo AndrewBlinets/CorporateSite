@@ -5,6 +5,8 @@ import by.ipps.admin.entity.BaseEntity;
 import by.ipps.admin.entity.UserAuth;
 import by.ipps.admin.utils.RestRequestToDao;
 import by.ipps.admin.utils.resttemplate.base.BaseEntityRestTemplate;
+import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,9 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @Slf4j
 public abstract class BaseEntityAbstractController<
@@ -25,8 +24,7 @@ public abstract class BaseEntityAbstractController<
   protected final String url;
   protected String sortDefault;
 
-  @Autowired
-  private RestRequestToDao restRequestToDao;
+  @Autowired private RestRequestToDao restRequestToDao;
 
   protected BaseEntityAbstractController(S s, String url, String sortDefault) {
     this.baseEntityTemplate = s;

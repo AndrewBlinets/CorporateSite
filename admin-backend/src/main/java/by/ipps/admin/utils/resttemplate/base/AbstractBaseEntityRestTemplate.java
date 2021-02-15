@@ -1,32 +1,30 @@
 package by.ipps.admin.utils.resttemplate.base;
 
 import by.ipps.admin.custom.CustomPage;
+import java.lang.reflect.ParameterizedType;
+import java.util.Collections;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.lang.reflect.ParameterizedType;
-import java.util.Collections;
-import java.util.List;
 
 @Slf4j
 public abstract class AbstractBaseEntityRestTemplate<E> implements BaseEntityRestTemplate<E> {
 
-  //        protected static final String URL_SERVER = "http://localhost:8082/dao/";
   @Value("${url.dao}")
   protected String URL_SERVER;
-  //  protected static final String URL_SERVER = "http://192.168.1.125:8080/dao/";
-  //  protected static final String URL_SERVER = "http://localhost:8080/dao/";
-  //      protected static final String URL_SERVER = "http://www.ipps.by:5454/dao/";
 
-  private Class<E> entityClass;
+  private final Class<E> entityClass;
 
-  @Autowired
-  protected RestTemplate restTemplate;
+  @Autowired protected RestTemplate restTemplate;
 
   @SuppressWarnings("unchecked")
   public AbstractBaseEntityRestTemplate() {
@@ -55,9 +53,7 @@ public abstract class AbstractBaseEntityRestTemplate<E> implements BaseEntityRes
             .queryParam("language", language);
     final ParameterizedTypeReference<CustomPage<E>> responseType =
         new ParameterizedTypeReference<CustomPage<E>>() {};
-    ResponseEntity<CustomPage<E>> a =
-        restTemplate.exchange(builder.toUriString(), HttpMethod.GET, null, responseType);
-    return a;
+    return restTemplate.exchange(builder.toUriString(), HttpMethod.GET, null, responseType);
   }
 
   @Override
@@ -103,8 +99,6 @@ public abstract class AbstractBaseEntityRestTemplate<E> implements BaseEntityRes
             .queryParam("language", language);
     final ParameterizedTypeReference<List<E>> responseType =
         new ParameterizedTypeReference<List<E>>() {};
-    ResponseEntity<List<E>> a =
-        restTemplate.exchange(builder.toUriString(), HttpMethod.GET, null, responseType);
-    return a;
+    return restTemplate.exchange(builder.toUriString(), HttpMethod.GET, null, responseType);
   }
 }

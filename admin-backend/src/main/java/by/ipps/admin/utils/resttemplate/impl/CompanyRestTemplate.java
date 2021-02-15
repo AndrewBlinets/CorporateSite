@@ -1,12 +1,15 @@
 package by.ipps.admin.utils.resttemplate.impl;
 
-import by.ipps.admin.entity.Company;
 import by.ipps.admin.utils.resttemplate.base.AbstractBaseEntityRestTemplate;
-import org.springframework.http.*;
+import java.util.Collections;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.Collections;
+import by.ipps.admin.entity.Company;
 
 @Component
 public class CompanyRestTemplate extends AbstractBaseEntityRestTemplate<Company> {

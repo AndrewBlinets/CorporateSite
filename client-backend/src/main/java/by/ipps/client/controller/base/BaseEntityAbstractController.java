@@ -3,10 +3,9 @@ package by.ipps.client.controller.base;
 import by.ipps.client.custom.CustomPage;
 import by.ipps.client.entity.BaseEntity;
 import by.ipps.client.resttemplate.base.BaseEntityRestTemplate;
-import org.springframework.http.ResponseEntity;
-
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.http.ResponseEntity;
 
 public abstract class BaseEntityAbstractController<
         T extends BaseEntity, S extends BaseEntityRestTemplate<T>>
@@ -24,8 +23,9 @@ public abstract class BaseEntityAbstractController<
 
   @Override
   public ResponseEntity<T> getById(
-          Long id, HttpServletRequest request, String section, String department) {
-    return baseEntityRestTemplate.findById(id, url, request.getHeader("Accept-Language"), section, department);
+      Long id, HttpServletRequest request, String section, String department) {
+    return baseEntityRestTemplate.findById(
+        id, url, request.getHeader("Accept-Language"), section, department);
   }
 
   @Override
@@ -37,12 +37,19 @@ public abstract class BaseEntityAbstractController<
       String section,
       String department) {
     return baseEntityRestTemplate.findPagingRecords(
-        page, size, sort == null ? this.sortDefault : sort, request.getHeader("Accept-Language"), url, section, department);
+        page,
+        size,
+        sort == null ? this.sortDefault : sort,
+        request.getHeader("Accept-Language"),
+        url,
+        section,
+        department);
   }
 
   @Override
   public ResponseEntity<List<T>> getAll(
-          HttpServletRequest request, String section, String department) {
-    return baseEntityRestTemplate.findAll(request.getHeader("Accept-Language"), url, section, department);
+      HttpServletRequest request, String section, String department) {
+    return baseEntityRestTemplate.findAll(
+        request.getHeader("Accept-Language"), url, section, department);
   }
 }

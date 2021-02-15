@@ -5,20 +5,23 @@ import by.ipps.admin.entity.News;
 import by.ipps.admin.entity.NewsToBD;
 import by.ipps.admin.utils.resttemplate.NewsRestTemplate;
 import by.ipps.admin.utils.resttemplate.base.AbstractBaseEntityRestTemplate;
+import java.util.Collections;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.Collections;
 
 @Component
 public class NewsTemplate extends AbstractBaseEntityRestTemplate<News> implements NewsRestTemplate {
 
-  @Autowired
-  private ModelMapper modelMapper;
+  @Autowired private ModelMapper modelMapper;
 
   @Override
   public ResponseEntity<CustomPage<News>> findPagingRecords(
@@ -48,8 +51,6 @@ public class NewsTemplate extends AbstractBaseEntityRestTemplate<News> implement
       return restTemplate.exchange(
           builder.toUriString(), HttpMethod.POST, requestEntity, News.class);
     } catch (Exception e) {
-      e.printStackTrace();
-      System.out.println(e.getMessage());
       return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }

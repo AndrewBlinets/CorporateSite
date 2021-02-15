@@ -12,16 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class AboutCompanyController {
 
-    private final AboutCompanyRestTemplate aboutCompanyRestTemplate;
+  private final AboutCompanyRestTemplate aboutCompanyRestTemplate;
 
-    public AboutCompanyController(AboutCompanyRestTemplate aboutCompanyRestTemplate) {
-        this.aboutCompanyRestTemplate = aboutCompanyRestTemplate;
-    }
+  public AboutCompanyController(AboutCompanyRestTemplate aboutCompanyRestTemplate) {
+    this.aboutCompanyRestTemplate = aboutCompanyRestTemplate;
+  }
 
-    @GetMapping(value = "api/aboutCompany")
-    @ResponseBody
-    public ResponseEntity<Company> getCompanyWithActualInfo() {
-        return aboutCompanyRestTemplate.getActualInfo();
-    }
-
+  @GetMapping(value = "api/aboutCompany")
+  @ResponseBody
+  public ResponseEntity<Company> getCompanyWithActualInfo() {
+    return aboutCompanyRestTemplate.getActualInfo();
+  }
 }

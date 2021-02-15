@@ -3,7 +3,7 @@ import store from '@/store';
 import { getToken } from './auth';
 
 const service = axios.create({
-  baseURL: 'http://www.ipps.by:5454/customer/api',
+  baseURL: '/customer/api',
 });
 
 service.interceptors.request.use(

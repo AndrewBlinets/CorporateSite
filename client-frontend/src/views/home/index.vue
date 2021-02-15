@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-resize="handelResizeBanner">
     <div class="main-banner">
       <div class="banner-image">
         <app-image :id="18"></app-image>
@@ -9,7 +9,15 @@
           <h4>{{ $t('views.home.mainBanner.typeOrganization') }}</h4>
           <h1>{{ $t('views.home.mainBanner.title') }}</h1>
           <p>{{ $t('views.home.mainBanner.aboutOrganization') }}</p>
+          <p class="mb-0">
+            {{ $t('views.home.mainBanner.membership-infopark') }}
+          </p>
+          <p>{{ $t('views.home.mainBanner.membership-htp') }}</p>
           <social-links />
+        </div>
+
+        <div v-if="showBannerImg" class="banner-img-content">
+          <img src="../../assets/logoIPPS.png" alt="" />
         </div>
       </div>
     </div>
@@ -35,6 +43,8 @@ import Partners from './components/Partners';
 import Projects from './components/Projects';
 import SocialLinks from '@/components/SocialLinks';
 
+import { Resize } from '@/directive/resize';
+
 export default {
   name: 'Home',
   components: {
@@ -48,13 +58,27 @@ export default {
     Projects,
     SocialLinks,
   },
+  directives: {
+    Resize,
+  },
+  data: () => ({
+    showBannerImg: null,
+  }),
+  created() {
+    this.handelResizeBanner();
+  },
+  methods: {
+    handelResizeBanner() {
+      this.showBannerImg = window.innerWidth > 840;
+    },
+  },
 };
 </script>
 
 <style lang="stylus" scoped>
 .main-banner {
   position: relative;
-  height: 700px;
+  height: 755px;
   overflow: hidden;
 
   &:before {
@@ -129,6 +153,18 @@ export default {
         color: $theme.$primary--light--color;
       }
       );
+    }
+  }
+
+  .banner-img-content {
+    display: flex;
+    align-items center;
+    justify-content: center;
+
+    img {
+      position: relative;
+      width: 325px;
+      z-index: 4;
     }
   }
 }

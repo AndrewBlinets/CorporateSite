@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class DocumentForCustomer extends BaseEntity {
+public class DocForCustomer extends BaseEntity {
 
   private ProjectDtoAdmin project;
   private Page sheet;

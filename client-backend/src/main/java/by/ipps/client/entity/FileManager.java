@@ -1,11 +1,10 @@
 package by.ipps.client.entity;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.io.Serializable;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,8 +12,8 @@ import java.io.Serializable;
 @Setter
 public class FileManager extends BaseEntity implements Serializable {
 
-    private String fileName;
-    private String fileMine;
-    private byte[] file;
-    private byte[] realize;
+  private String fileName;
+  private String fileMine;
+  private byte[] file;
+  private byte[] realize;
 }

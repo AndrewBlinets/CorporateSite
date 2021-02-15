@@ -1,21 +1,19 @@
 package by.ipps.admin.utils;
 
 import by.ipps.admin.exception.InvalidJwtAuthenticationException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Component
 public class JwtRevokedTokensStore {
 
-  @Autowired
-  private JwtTokenUtil jwtTokenProvider;
+  @Autowired private JwtTokenUtil jwtTokenProvider;
 
-  private LinkedList<String> revokedTokensQueue = new LinkedList<>();
-  private Set<Integer> revokedTokens = new HashSet<>();
+  private final LinkedList<String> revokedTokensQueue = new LinkedList<>();
+  private final Set<Integer> revokedTokens = new HashSet<>();
 
   void revokeToken(String token) throws InvalidJwtAuthenticationException {
     if (!revokedTokens.contains(token.hashCode())) {

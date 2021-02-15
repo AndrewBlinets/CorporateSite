@@ -5,13 +5,12 @@ import by.ipps.admin.entity.CustomerForList;
 import by.ipps.admin.entity.ProjectForCustomer;
 import by.ipps.admin.utils.resttemplate.CustomerRestTemplate;
 import by.ipps.admin.utils.resttemplate.base.AbstractBaseEntityRestTemplate;
+import java.util.List;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.List;
 
 @Component
 public class CustomerTemplate extends AbstractBaseEntityRestTemplate<Customer>
@@ -30,11 +29,11 @@ public class CustomerTemplate extends AbstractBaseEntityRestTemplate<Customer>
   @Override
   public ResponseEntity<List<CustomerForList>> getListCustomerWithoutProject(long project) {
     UriComponentsBuilder builder =
-            UriComponentsBuilder.fromHttpUrl(URL_SERVER + "/customer/getList/" + project);
+        UriComponentsBuilder.fromHttpUrl(URL_SERVER + "/customer/getList/" + project);
     final ParameterizedTypeReference<List<CustomerForList>> responseType =
-            new ParameterizedTypeReference<List<CustomerForList>>() {};
+        new ParameterizedTypeReference<List<CustomerForList>>() {};
     ResponseEntity<List<CustomerForList>> a =
-            restTemplate.exchange(builder.toUriString(), HttpMethod.GET, null, responseType);
+        restTemplate.exchange(builder.toUriString(), HttpMethod.GET, null, responseType);
     return a;
   }
 }
